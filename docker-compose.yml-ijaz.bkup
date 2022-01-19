@@ -1,0 +1,46 @@
+--- 
+secrets: 
+  db_password: 
+    file: db_password.txt
+  db_root_password: 
+    file: db_root_password.txt
+services: 
+  db: 
+    environment: 
+      MYSQL_DATABASE: myDb
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_USER: ranjit
+    image: "mysql:5.7.28"
+    ports: 
+      - "3306:3306"
+    secrets: 
+      - db_password
+      - db_root_password
+    volumes: 
+      - "./dump:/docker-entrypoint-initdb.d"
+      - "persistent:/var/lib/mysql"
+  phpmyadmin: 
+    depends_on: 
+      - db
+    environment: 
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_USER: ranjit
+    image: phpmyadmin/phpmyadmin
+    ports: 
+      - "82:80"
+    secrets: 
+      - db_password
+      - db_root_password
+  ui: 
+    build: "."
+    depends_on: 
+      - db
+    ports: 
+      - "80:80"
+    volumes: 
+      - "./www:/var/www/html/"
+version: "3.3"
+volumes: 
+  persistent: ~
