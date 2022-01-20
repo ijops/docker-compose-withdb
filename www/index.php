@@ -16,7 +16,7 @@
 	<br><br>
 
     <?php
-    $conn = mysqli_connect('db', 'ranjit', 'linux', "myDb");
+    $conn = mysqli_connect('db', 'devops', 'linux', "myDb");
     $query = 'SELECT * From Person';
     $result = mysqli_query($conn, $query);
     echo '<table class="table table-striped">';

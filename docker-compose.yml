@@ -15,7 +15,7 @@ services:
             - "3306:3306"
         environment:
             MYSQL_DATABASE: myDb
-            MYSQL_USER: ranjit
+            MYSQL_USER: devops
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
         secrets:
@@ -31,7 +31,7 @@ services:
         depends_on :
             - db        
         environment:
-            MYSQL_USER: ranjit
+            MYSQL_USER: devops
             MYSQL_PASSWORD_FILE: /run/secrets/db_password
             MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
         secrets:
