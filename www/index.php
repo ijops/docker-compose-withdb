@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Ranjit Swain | Docker class</title>
+  <title>Ijaz Mohammed | Docker Compose/title>
 
   <meta charset="utf-8">
 
@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-    <?php echo "<h1>Hello, Welcome to Ranjit's Lecture!</h1>"; ?>
+    <?php echo "<h1>Hello, Welcome to Docker Compose!!!!!!!!!</h1>"; ?>
 	<?php echo "<h3>Docker Compose Class!</h3>"; ?>
 	<br><br>
 
